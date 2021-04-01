@@ -2,14 +2,30 @@
 Realizar una función que permita contar la cantidad de vocales que tiene un texto que se recibe como parámetro. No habrá discriminación entre las vocales en mayúscula y en minúscula. Las vocales acentuadas no se contarán. El valor obtenido se retornará al terminar la función. Si se no se recibe un string retornará -1.
 */
 function contarVocales(texto) {
-  return
+    if (typeof texto != "string") {
+        return -1;
+    } else {
+        let letras = texto.split('');
+        let contador = 0;
+        for (letra of letras) {
+            if (esVocal(letra)) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+}
+
+const esVocal = (letra) => {
+    let vocales = 'aeiouAEIOU';
+    return (vocales.indexOf(letra) != -1)
 }
 
 /* 
 Crear un repo en github y subir todo el proyecto. Se ignorará la carpeta node_modules (para ellos está creado el archivo .gitignore en este proyecto) Esta función devolverá un string con la url del repo.
 */
 function urlRepo() {
-  return
+    return 'https://github.com/florfrioli/Fizzmod-tp1.git';
 }
 
 /* 
@@ -17,11 +33,11 @@ Crear una función arrow, que devuelva una clase en ES6 que contendrá dos méto
 Crear un propiedad estática contadorInstancias que me indique cuantas instancias hay de esa clase.
 */
 const crearClase = () => {
-  return
+    return
 }
 
 module.exports = {
-  contarVocales,
-  urlRepo,
-  crearClase
+    contarVocales,
+    urlRepo,
+    crearClase
 };
